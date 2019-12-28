@@ -1,0 +1,11 @@
+VMware Command Line Interface Tool
+
+This tool implements the common tasks associated with managing a virtual machine
+(vm) in the VMware environment.
+
+Getting Started
+---------------
+
+  1.  See the SETUP file for information on setting up the tool.
+
+  2.  See the tool's help, vcli -h, for additional information.
