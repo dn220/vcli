@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+'''
+VMware Command Line Interface (vcli) tool
+'''
+
+
+def main():
+    '''
+    VCLI Tool wrapper
+    '''
+    from VCLI import VCLI
+    _vcli = VCLI()
+    _vcli.main()
+
+
+# Start program
+if __name__ == '__main__':
+    main()
