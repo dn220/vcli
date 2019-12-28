@@ -1,0 +1,8 @@
+VMware Command Line Interface Tool
+
+This tool implements the common tasks associated with managing a virtual machine
+(vm) in the VMware environment.
+
+Date        Version     Change
+----------  -------     ------------------------------
+12/28/2019  0.2.20      Initial release.
