@@ -1,0 +1,65 @@
+VMware Command Line Interface Tool
+
+This tool implements the common tasks associated with managing a virtual machine
+(vm) in the VMware environment.
+
+vcli was written in Python 2.7 using pyvmomi 6.7.
+
+vcli utilizes these python modules.  You can install them using the pip command.
+
+    Required Python Modules:
+        netaddr
+        pycryptodome
+        pyvmomi
+        requests
+        urllib3
+        vapi-client-bindings
+        vapi-common-client
+        vapi-runtime
+
+Once all required modules have been installed copy the vcli compoents to its
+appropriate directory.
+
+    File        Description
+    ----        -----------
+    vcli        wrapper script, copy to executable directory in PATH,
+                e.g.  /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, etc...
+    VCLI.py     vcli class module that implements the vcli toolset.
+                This module is imported by the vcli wrapper script.
+                This module should be copied to the site-packages directory,
+                e.g.  /usr/lib/python2.7/site-packages/
+
+                Note:  It is highly recommended that the module is compiled first.
+                       [root]# python -m py_compile VCLI.py
+                       This will create a compiled object code, VCLI.pyc.
+                       Copy this file VCLI.pyc, instead of the source file VCLI.py.
+
+VCenter Login
+A configuration file name .vcli.conf is needed to provided vcenter
+authentication.  The vcli tool will search for the .vcli.conf file in
+your HOME directory or system configuration directory /etc/.
+
+The .vcli.conf file contains four key information:
+    Key     Value
+    ---     -----
+    host    Hostname of the vcenter
+    port    Port vcenter is listening on.
+    username   Account used to connect to vcenter.
+    password   Encrypted password to account, see below for example.
+               Note:  This field is required for seamless operations.
+                      If omitted vcli will prompt for password.
+    
+Sample .vcli.conf file
+    [root]# cat .vcli.conf
+    vcenter:
+        host: 'vcenter.example.com'
+        port: 443
+        username: 'dn220'
+        password: 'UORhs+sUeMnBi6WCJhA0t2UudxJbsqJunONoJf8A2/R6yWa3cR5PiR28LKf5jBEH'
+    [root]#
+
+Encrypting password for .vcli.conf
+    [root]# vcli encrypt
+    Password to Encrypt:
+    Encrypted ciphertext: UORhs+sUeMnBi6WCJhA0t2UudxJbsqJunONoJf8A2/R6yWa3cR5PiR28LKf5jBEH
+    [root]#
